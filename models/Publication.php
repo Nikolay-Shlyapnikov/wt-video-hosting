@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -14,6 +15,9 @@ use yii\db\ActiveRecord;
  * @property string $desc
  * @property int $view_count
  * @property int $user_id
+ * @property int $category_id
+ *
+ * @property Category $category
  */
 class Publication extends ActiveRecord
 {
@@ -43,6 +47,26 @@ class Publication extends ActiveRecord
             [['user_id'], 'required'],
             [['user_id'], 'integer'],
             [['user_id'], 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
+
+            [['category_id'], 'required'],
+            [['category_id'], 'integer'],
+            [['category_id'], 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
         ];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getUser(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getCategory(): ActiveQuery
+    {
+        return $this->hasOne(Category::class, ['id' => 'category_id']);
     }
 }

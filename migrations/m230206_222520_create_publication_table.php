@@ -20,7 +20,25 @@ class m230206_222520_create_publication_table extends Migration
             'desc' => $this->text()->null(),
             'view_count' => $this->integer()->notNull()->defaultValue(0),
             'user_id' => $this->integer()->unsigned()->notNull(),
+            'category_id' => $this->integer()->unsigned()->notNull(),
         ]);
+
+        // creates index for column 'category_id'
+        $this->createIndex(
+            'idx-publication-category_id',
+            'publication',
+            'category_id'
+        );
+
+        // creates foreign key for table 'category'
+        $this->addForeignKey(
+            '{{%fk-publication-user_id}}',
+            '{{%publication}}',
+            'category_id',
+            '{{%category}}',
+            'id',
+            'CASCADE'
+        );
 
         // creates index for column 'user_id'
         $this->createIndex(
