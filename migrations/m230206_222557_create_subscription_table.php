@@ -21,15 +21,15 @@ class m230206_222557_create_subscription_table extends Migration
 
         // creates index for column 'user_id'
         $this->createIndex(
-            'idx-subscribe-user_id',
-            'subscribe',
+            'idx-subscription-user_id',
+            'subscription',
             'user_id'
         );
 
         // creates foreign key for table 'user'
         $this->addForeignKey(
-            '{{%fk-subscribe-user_id}}',
-            '{{%subscribe}}',
+            '{{%fk-subscription-user_id}}',
+            '{{%subscription}}',
             'user_id',
             '{{%user}}',
             'id',
@@ -38,15 +38,15 @@ class m230206_222557_create_subscription_table extends Migration
 
         // creates index for column 'subscriber_id'
         $this->createIndex(
-            'idx-subscribe-publication_id',
-            'subscribe',
+            'idx-subscription-publication_id',
+            'subscription',
             'subscriber_id'
         );
 
         // creates foreign key for table 'user'
         $this->addForeignKey(
-            '{{%fk-subscribe-publication_id}}',
-            '{{%subscribe}}',
+            '{{%fk-subscription-publication_id}}',
+            '{{%subscription}}',
             'subscriber_id',
             '{{%user}}',
             'id',
