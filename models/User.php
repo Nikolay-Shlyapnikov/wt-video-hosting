@@ -2,103 +2,89 @@
 
 namespace app\models;
 
-class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
+use Yii;
+use yii\db\ActiveRecord;
+use yii\web\IdentityInterface;
+
+/**
+ * This is the model class for table "user"
+ *
+ * @property int $id
+ * @property string $created_at
+ * @property string $login
+ * @property string $password_hash
+ * @property int $age
+ * @property string $chanel
+ * @property string $image_path
+ */
+class User extends ActiveRecord implements IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
-    public $authKey;
-    public $accessToken;
+    public static function tableName(): string
+    {
+        return '{{%user}}';
+    }
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
+    public function rules(): array
+    {
+        return [
+            [['login'], 'trim'],
+            [['login'], 'required'],
+            [['login'], 'string', 'max' => 128],
+            [['login'], 'email'],
+            [['login'], 'unique'],
 
+            [['password_hash'], 'trim'],
+            [['password_hash'], 'required'],
+            [['password_hash'], 'string', 'max' => 255],
 
-    /**
-     * {@inheritdoc}
-     */
+            [['age'], 'required'],
+            [['age'], 'integer', 'min' => 0],
+
+            [['chanel_name'], 'trim'],
+            [['chanel_name'], 'required'],
+            [['chanel_name'], 'string', 'max' => 128],
+
+            [['image_path'], 'trim'],
+            [['image_path'], 'required'],
+            [['image_path'], 'string', 'max' => 128],
+            [['image_path'], 'unique'],
+        ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
+
     public static function findIdentity($id)
     {
-        return isset(self::$users[$id]) ? new static(self::$users[$id]) : null;
+        // TODO: Implement findIdentity() method.
+        return static::findOne($id);
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public static function findIdentityByAccessToken($token, $type = null)
     {
-        foreach (self::$users as $user) {
-            if ($user['accessToken'] === $token) {
-                return new static($user);
-            }
-        }
-
-        return null;
+        // TODO: Implement findIdentityByAccessToken() method.
     }
 
-    /**
-     * Finds user by username
-     *
-     * @param string $username
-     * @return static|null
-     */
-    public static function findByUsername($username)
+    public function getId(): int
     {
-        foreach (self::$users as $user) {
-            if (strcasecmp($user['username'], $username) === 0) {
-                return new static($user);
-            }
-        }
-
-        return null;
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getId()
-    {
+        // TODO: Implement getId() method.
         return $this->id;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function getAuthKey()
     {
-        return $this->authKey;
+        // TODO: Implement getAuthKey() method.
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function validateAuthKey($authKey)
     {
-        return $this->authKey === $authKey;
+        // TODO: Implement validateAuthKey() method.
     }
 
-    /**
-     * Validates password
-     *
-     * @param string $password password to validate
-     * @return bool if password provided is valid for current user
-     */
-    public function validatePassword($password)
+    public function validatePassword(string $password): bool
     {
-        return $this->password === $password;
+        return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
 }

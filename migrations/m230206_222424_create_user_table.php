@@ -18,7 +18,7 @@ class m230206_222424_create_user_table extends Migration
             'login' => $this->string(128)->notNull()->unique(),
             'password_hash' => $this->string(255)->notNull(),
             'age' => $this->integer()->notNull(),
-            'chanel' => $this->string(128)->notNull(),
+            'chanel_name' => $this->string(128)->notNull(),
             'image_path' => $this->string(128)->notNull(),
         ]);
     }

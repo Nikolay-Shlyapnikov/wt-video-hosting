@@ -5,14 +5,14 @@ use yii\db\Migration;
 /**
  * Handles the creation of table `{{%subscribe}}`.
  */
-class m230206_222557_create_subscribe_table extends Migration
+class m230206_222557_create_subscription_table extends Migration
 {
     /**
      * {@inheritdoc}
      */
     public function safeUp()
     {
-        $this->createTable('{{%subscribe}}', [
+        $this->createTable('{{%subscription}}', [
             'id' => $this->primaryKey()->unsigned(),
             'created_at' => $this->timestamp()->notNull()->defaultExpression('CURRENT_TIMESTAMP'),
             'user_id' => $this->integer()->unsigned()->notNull(),
@@ -59,6 +59,6 @@ class m230206_222557_create_subscribe_table extends Migration
      */
     public function safeDown()
     {
-        $this->dropTable('{{%subscribe}}');
+        $this->dropTable('{{%subscription}}');
     }
 }
