@@ -7,12 +7,12 @@
     <title>videohosting</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?_v=20230213012929" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js?_v=20230213012929" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?_v=20230213024400" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js?_v=20230213024400" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     <!--необходимые для вёрстки шрифты-->
 
-    <link rel="stylesheet" href="css/index.css?_v=20230213012929" type="text/css">
+    <link rel="stylesheet" href="css/style.min.css?_v=20230213024400" type="text/css">
 </head>
 
 <body>
@@ -45,7 +45,6 @@
 </header>
     <main>
         <div class="container main-page__container">
-
             <section class="sidebar">
     <ul class="sidebar__list">
         <h2 class="sidebar__title">Категории</h2>
@@ -80,7 +79,8 @@
         <li class="sidebar__item"><a href="">Сначала новые</a></li>
         <li class="sidebar__item"><a href="">Сначала старые</a></li>
     </ul>
-</section> <section>
+</section> 
+            <section>
     <h2 class="video__title">Видео</h2>
     <div class="video__wrapper">
         <a href="" class="video__item">
@@ -112,50 +112,28 @@
             </div>
         </a>
     </div>
-</section> <form>
+</section> 
+            <section class="comment">
+    <h2 class="comment__title">Комментарии</h2>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Адрес электронной почты</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text help-block"></div>
+        <label for="comment" class="form-label">Введите свой комментарий:</label>
+        <textarea class="form-control" id="comment" rows="3"></textarea>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Пароль</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-        <div id="emailHelp" class="form-text help-block"></div>
+    <div class="comment__wrapper">
+        <div class="comment__item">
+            <div class="comment__info">
+                <img class="comment__author-image" src="" alt="Аватар автора">
+                <span class="comment__author-name">Иван Иванов</span>
+                <span class="comment__date">13.02.2023</span>
+            </div>
+            <p class="comment__text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim saepe adipisci dignissimos facere soluta, iste consequatur ipsam, reprehenderit sit cupiditate quidem ab? Distinctio provident possimus dolore. Dolorum eius veritatis fugit.</p>
+        </div>
     </div>
-    <button type="submit" class="btn btn-primary">Отправить</button>
-</form> <form>
-    <div class="mb-3">
-        <label for="email" class="form-label">Логин</label>
-        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text"></div>
-    </div>
-    <div class="mb-3">
-        <label for="password" class="form-label">Пароль</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3">
-        <label for="chanel" class="form-label">Название канала</label>
-        <input type="text" class="form-control" id="chanel">
-    </div>
-    <div class="mb-3">
-        <label for="avatar" class="form-label">Загрузите фото канала</label>
-        <input class="form-control" type="file" id="avatar">
-    </div>
-    <div class="mb-3">
-        <select class="form-select" name="age">
-                    <option selected>Откройте это меню выбора</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Отправить</button>
-</form>
+</section>
         </div>
     </main>
     
-    <script src="js/app.min.js?_v=20230213012929"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js?_v=20230213024400" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
