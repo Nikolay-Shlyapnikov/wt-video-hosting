@@ -35,4 +35,9 @@ class Category extends ActiveRecord
             [['is_xxx'], 'boolean'],
         ];
     }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
 }

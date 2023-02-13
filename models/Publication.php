@@ -54,6 +54,11 @@ class Publication extends ActiveRecord
         ];
     }
 
+    public function attributeLabels(): array
+    {
+        return [];
+    }
+
     /**
      * @return ActiveQuery
      */

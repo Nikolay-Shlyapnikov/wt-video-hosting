@@ -36,4 +36,9 @@ class Comment extends ActiveRecord
             [['publication_id'], 'exist', 'targetClass' => Publication::class, 'targetAttribute' => 'id'],
         ];
     }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
 }

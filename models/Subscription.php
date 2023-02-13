@@ -32,4 +32,9 @@ class Subscription extends ActiveRecord
             [['subscriber_id'], 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
         ];
     }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
 }
