@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
 
@@ -16,6 +17,11 @@ use yii\web\IdentityInterface;
  * @property int $age
  * @property string $chanel
  * @property string $image_path
+ *
+ * @property Comment[] $comments
+ * @property Like[] $likes
+ * @property Publication[] $publications
+ * @property Subscription[] $subscriptions
  */
 class User extends ActiveRecord implements IdentityInterface
 {
@@ -54,6 +60,38 @@ class User extends ActiveRecord implements IdentityInterface
     public function attributeLabels(): array
     {
         return [];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getComments(): ActiveQuery
+    {
+        return $this->hasMany(Comment::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getLikes(): ActiveQuery
+    {
+        return $this->hasMany(Like::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getPublications(): ActiveQuery
+    {
+        return $this->hasMany(Publication::class, ['user_id' => 'id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSubscriptions(): ActiveQuery
+    {
+        return $this->hasMany(Subscription::class, ['subscriber_id' => 'id']);
     }
 
     public static function findIdentity($id)

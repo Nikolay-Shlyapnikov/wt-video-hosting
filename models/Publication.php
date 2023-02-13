@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property int $user_id
  * @property int $category_id
  *
+ * @property User $user
  * @property Category $category
  */
 class Publication extends ActiveRecord

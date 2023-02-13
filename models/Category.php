@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -12,6 +13,8 @@ use yii\db\ActiveRecord;
  * @property string $name
  * @property string $desc
  * @property bool is_xxx
+ *
+ * @property Publication[] $publications
  */
 class Category extends ActiveRecord
 {
@@ -39,5 +42,13 @@ class Category extends ActiveRecord
     public function attributeLabels(): array
     {
         return [];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getPublications(): ActiveQuery
+    {
+        return $this->hasMany(Publication::class, ['category_id' => 'id']);
     }
 }

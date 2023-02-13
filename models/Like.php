@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -11,6 +12,9 @@ use yii\db\ActiveRecord;
  * @property string $created_at
  * @property int $user_id
  * @property int $publication_id
+ *
+ * @property User $user
+ * @property Publication $publication
  */
 class Like extends ActiveRecord
 {
@@ -36,5 +40,21 @@ class Like extends ActiveRecord
     public function attributeLabels(): array
     {
         return [];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getUser(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getPublication(): ActiveQuery
+    {
+        return $this->hasOne(Publication::class, ['id' => 'publication_id']);
     }
 }
