@@ -4,20 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>videohosting</title>
+    <title>Xydra |</title>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?_v=20230213215917" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css?_v=20230214222850" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
    
-    <!-- <link rel="stylesheet" href="css/style.min.css?_v=20230213215917" type="text/css"> -->
+    <link rel="stylesheet" href="css/style.min.css?_v=20230214222850" type="text/css">
 </head>
 
 <body>
     <header class="page-header">
         <div class="container">
-            <div class="page-header__logo">
-                <img src="logo.png" alt="Логотип">
-                <!--Лого, как и названия, нет)))-->
+            <div class="page-header__logo-wrapper">
+            <h1 class="page-header__logo">Xydra</h1>
             </div>
             <div class="page-header__search">
                 <input type="text" name="search" id="" class="page-header__search-input form-control" placeholder="Введите название видео">
@@ -42,38 +41,46 @@
         </div>
     </header>
     <main>
-        <div class="container main-page__container">
-            <form>
-                <div class="mb-3">
-                    <label for="email" class="form-label">Логин</label>
-                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
-                    <div id="emailHelp" class="form-text"></div>
-                </div>
-                <div class="mb-3">
-                    <label for="password" class="form-label">Пароль</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3">
-                    <label for="chanel" class="form-label">Название канала</label>
-                    <input type="text" class="form-control" id="chanel">
-                </div>
-                <div class="mb-3">
-                    <label for="avatar" class="form-label">Загрузите фото канала</label>
-                    <input class="form-control" type="file" id="avatar">
-                </div>
-                <div class="mb-3">
-                    <select class="form-select" name="age">
-                        <option selected>Откройте это меню выбора</option>
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                    </select>
-                </div>
-                <button type="submit" class="btn btn-primary">Отправить</button>
-            </form> 
-        </div>
+        <section>
+            <h2 class="form__title">Регистрация</h2>
+            <div class="container">
+                <form class="form">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Логин</label>
+                        <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                        <div id="emailHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Пароль</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                        <div id="passwordHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="chanel" class="form-label">Название канала</label>
+                        <input type="text" class="form-control" id="chanel">
+                        <div id="chanelHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="avatar" class="form-label">Загрузите фото канала</label>
+                        <input class="form-control" type="file" id="avatar">
+                        <div id="avatarHelp" class="form-text"></div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" name="age">
+                            <option selected>Сколько Вам лет?</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                        <div id="ageHelp" class="form-text"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form> 
+            </div>
+        </section>
     </main>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js?_v=20230213215917" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js?_v=20230214222850" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
