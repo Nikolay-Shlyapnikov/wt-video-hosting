@@ -17,6 +17,7 @@ use yii\db\ActiveRecord;
  * @property int $user_id
  * @property int $category_id
  *
+ * @property User $user
  * @property Category $category
  */
 class Publication extends ActiveRecord
@@ -52,6 +53,11 @@ class Publication extends ActiveRecord
             [['category_id'], 'integer'],
             [['category_id'], 'exist', 'targetClass' => Category::class, 'targetAttribute' => 'id'],
         ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [];
     }
 
     /**

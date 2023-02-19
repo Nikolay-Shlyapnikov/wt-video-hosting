@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -12,6 +13,9 @@ use yii\db\ActiveRecord;
  * @property string $text
  * @property int $user_id
  * @property int $publication_id
+ *
+ * @property User $user
+ * @property Publication $publication
  */
 class Comment extends ActiveRecord
 {
@@ -35,5 +39,26 @@ class Comment extends ActiveRecord
             [['publication_id'], 'integer'],
             [['publication_id'], 'exist', 'targetClass' => Publication::class, 'targetAttribute' => 'id'],
         ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getUser(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getPublication(): ActiveQuery
+    {
+        return $this->hasOne(Publication::class, ['id' => 'publication_id']);
     }
 }

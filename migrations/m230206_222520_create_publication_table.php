@@ -32,7 +32,7 @@ class m230206_222520_create_publication_table extends Migration
 
         // creates foreign key for table 'category'
         $this->addForeignKey(
-            '{{%fk-publication-user_id}}',
+            '{{%fk-publication-category_id}}',
             '{{%publication}}',
             'category_id',
             '{{%category}}',

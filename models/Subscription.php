@@ -2,6 +2,7 @@
 
 namespace app\models;
 
+use yii\db\ActiveQuery;
 use yii\db\ActiveRecord;
 
 /**
@@ -11,6 +12,9 @@ use yii\db\ActiveRecord;
  * @property string $created_at
  * @property int $user_id
  * @property int $subscriber_id
+ *
+ * @property User $user
+ * @property User $subscriber
  */
 class Subscription extends ActiveRecord
 {
@@ -31,5 +35,26 @@ class Subscription extends ActiveRecord
             [['subscriber_id'], 'integer'],
             [['subscriber_id'], 'exist', 'targetClass' => User::class, 'targetAttribute' => 'id'],
         ];
+    }
+
+    public function attributeLabels(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getUser(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'user_id']);
+    }
+
+    /**
+     * @return ActiveQuery
+     */
+    public function getSubscriber(): ActiveQuery
+    {
+        return $this->hasOne(User::class, ['id' => 'subscriber_id']);
     }
 }
